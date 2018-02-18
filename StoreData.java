@@ -69,6 +69,32 @@ public class StoreData {
 		}
 		PW.println();
 	}
+
+		// connect array
+	double[][] connectArray(double[][] data1, double[][] data2){
+		double[][]returnData =null;
+		if(data1[0].length== data2[0].length){//配列１と配列２の要素数を比較
+			int len = data1.length+data2.length;
+			returnData = new double[len][data1[0].length];
+
+			//配列１を挿入
+			for(int i=0; i<data1.length;i++){
+				for(int j=0;j<data1[i].length;j++){
+					returnData[i][j] = data1[i][j];
+				}
+			}
+
+			//配列２を挿入
+			for(int i=0;i<data2.length;i++){
+				for(int j=0;j<data2[i].length;j++){
+					returnData[i+data1.length][j] = data2[i][j];
+				}
+			}
+		}else{
+			System.out.println("differ array amount.");
+		}
+		return returnData;
+	}
 }
 
 class DB{
